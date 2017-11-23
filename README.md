@@ -1,5 +1,7 @@
 # grunt-html-html-reporter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/prantlf/grunt-html-html-reporter.svg)](https://greenkeeper.io/)
+
 A custom reporter for [grunt-html] - the HTML validation task - which formats the validation results to HTML.
 
 ## Installation
