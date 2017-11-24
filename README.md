@@ -32,7 +32,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
- * 2017-11-24   v0.1.0   Initial release
+ * 2017-11-24   v0.2.0   Fix recognition of warnings,
+                         say "notices" instead of "notes"
+ * 2017-11-24   v0.0.1   Initial release
 
 ## License
 
