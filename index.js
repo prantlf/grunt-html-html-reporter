@@ -10,7 +10,7 @@ module.exports = function (results) {
   var files = {}
   var errorCount = 0
   var warningCount = 0
-  var noteCount = 0
+  var noticeCount = 0
 
   results.forEach(function (result) {
     const name = path.normalize(result.file)
@@ -22,18 +22,18 @@ module.exports = function (results) {
         name: name,
         errors: [],
         warnings: [],
-        notes: []
+        notices: []
       }
     }
-    if (severity === 'error') {
+    if (severity === 'error' || severity === 'non-document-error') {
       ++errorCount
       issues = file.errors
-    } else if (severity === 'warning') {
+    } else if (severity === 'info' && result.subType === 'warning') {
       ++warningCount
       issues = file.warnings
     } else {
-      ++noteCount
-      issues = file.notes
+      ++noticeCount
+      issues = file.notices
     }
     issues.push({
       line: result.lastLine,
@@ -43,11 +43,10 @@ module.exports = function (results) {
     })
   })
 
-  files = Object.values(files)
   return template({
-    files: files,
+    files: Object.values(files),
     errorCount: errorCount,
     warningCount: warningCount,
-    noteCount: noteCount
+    noticeCount: noticeCount
   })
 }
