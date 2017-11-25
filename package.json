@@ -1,7 +1,7 @@
 {
   "name": "grunt-html-html-reporter",
   "description": "Formats HTML validation results performed by grunt-html to HTML.",
-  "version": "0.2.0",
+  "version": "0.0.0-development",
   "homepage": "https://github.com/prantlf/grunt-html-html-reporter",
   "author": {
     "name": "Ferdinand Prantl",
@@ -27,18 +27,21 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "standard *.js"
+    "test": "standard *.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "handlebars": "^4.0.11"
   },
   "devDependencies": {
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "semantic-release": "^8.2.0"
   },
   "keywords": [
-    "gruntplugin",
+    "grunt-tasks",
     "grunt-html",
     "html",
-    "reporter"
+    "reporter",
+    "validator"
   ]
 }
