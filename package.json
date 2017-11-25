@@ -33,7 +33,8 @@
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
-    "handlebars": "^4.0.11"
+    "handlebars": "^4.0.11",
+    "object.values": "^1.0.4"
   },
   "devDependencies": {
     "semantic-release": "^8.2.0",
