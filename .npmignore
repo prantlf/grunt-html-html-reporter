@@ -1,7 +1,6 @@
 .git
 .gitignore
 .editorconfig
-.idea
 .npmignore
 .vscode
 node_modules
