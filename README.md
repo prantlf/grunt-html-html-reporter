@@ -51,6 +51,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2017-11-25   v0.2.1   Support Node.js < 7
  * 2017-11-24   v0.2.0   Fix recognition of warnings,
                          say "notices" instead of "notes"
  * 2017-11-24   v0.0.1   Initial release
@@ -70,3 +71,4 @@ Licensed under the MIT license.
 [grunt-html]: https://github.com/jzaefferer/grunt-html
 [`reporter`]: https://github.com/jzaefferer/grunt-html#reporter
 [`htmllint`]: https://github.com/jzaefferer/grunt-html#getting-started
+[grunt-html-html-report-converter]: https://github.com/prantlf/grunt-html-html-report-converter
