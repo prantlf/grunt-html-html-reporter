@@ -33,12 +33,16 @@ module.exports = function (results) {
     if (severity === 'error' || severity === 'non-document-error') {
       ++errorCount
       issues = file.errors
-    } else if (severity === 'info' && result.subType === 'warning') {
-      ++warningCount
-      issues = file.warnings
+    } else if (severity === 'info') {
+      if (result.subType === 'warning') {
+        ++warningCount
+        issues = file.warnings
+      } else {
+        ++noticeCount
+        issues = file.notices
+      }
     } else {
-      ++noticeCount
-      issues = file.notices
+      issues = []
     }
     issues.push({
       line: result.lastLine,

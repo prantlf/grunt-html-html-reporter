@@ -51,6 +51,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2018-01-27   v0.2.2   Do not report unknown messqge types as notices
  * 2017-11-25   v0.2.1   Support Node.js < 7
  * 2017-11-24   v0.2.0   Fix recognition of warnings,
                          say "notices" instead of "notes"
@@ -58,7 +59,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## License
 
-Copyright (c) 2017 Ferdinand Prantl
+Copyright (c) 2017-2018 Ferdinand Prantl
 
 Licensed under the MIT license.
 
