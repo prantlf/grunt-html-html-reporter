@@ -51,6 +51,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2018-02-28   v0.2.4   Add \<meta charset="utf-8"\> to the HTML page
  * 2018-01-27   v0.2.2   Do not report unknown messqge types as notices
  * 2017-11-25   v0.2.1   Support Node.js < 7
  * 2017-11-24   v0.2.0   Fix recognition of warnings,
