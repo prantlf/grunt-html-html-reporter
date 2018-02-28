@@ -4,7 +4,7 @@ const fs = require('fs')
 const handlebars = require('handlebars')
 const path = require('path')
 const template = handlebars.compile(fs.readFileSync(
-          path.join(__dirname, 'template.hbs'), 'utf-8'))
+  path.join(__dirname, 'template.hbs'), 'utf-8'))
 
 const objectValues = require('object.values')
 if (!Object.values) {
