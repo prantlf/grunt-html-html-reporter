@@ -24,9 +24,19 @@ You can use the reporter programmatically to process accessibility results as an
 const report = require('grunt-html-html-reporter')
 const input = fs.readFileSync('report.json', 'utf-8')
 const results = JSON.parse(input)
-const output = report(results)
+const output = report(results, {
+  showFileNameOnly: false
+})
 fs.writeFileSync('report.html', output, 'utf-8')
 ```
+
+### Options
+
+#### showFileNameOnly
+Type: `Boolean`
+Default value: `false`
+
+Cuts the directory from tested HTML files, when creating page titles from in the report. If you use unique names for files alone, you will not get too long page titles, if you flip this flag tp `true`.
 
 ## Usage with grunt-html
 
@@ -51,6 +61,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2018-03-05   v2.2.0   Allow generating page titles from file names without directory
  * 2018-03-04   v2.1.0   Add filtering and accessibility to the reports
  * 2018-03-01   v2.0.0   Change the HTML format to look like Koa11y reports
  * 2018-03-01   v1.0.0   Release a stable version using a simple HTML format

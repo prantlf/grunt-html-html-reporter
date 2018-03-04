@@ -54,7 +54,8 @@ function formatFile (file) {
   return content
 }
 
-module.exports = function (results) {
+module.exports = function (results, options) {
+  const showFileNameOnly = options && options.showFileNameOnly
   const files = {}
   var errorCount = 0
   var warningCount = 0
@@ -64,10 +65,16 @@ module.exports = function (results) {
     const name = path.normalize(result.file)
     const severity = result.type
     var file = files[name]
-    var issues
+    var fileName, issues
     if (!file) {
+      if (showFileNameOnly) {
+        fileName = path.parse(name)
+        fileName = fileName.name + fileName.ext
+      } else {
+        fileName = name
+      }
       file = files[name] = {
-        name: name,
+        name: fileName,
         errors: [],
         warnings: [],
         notices: []
