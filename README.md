@@ -51,6 +51,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2018-03-04   v2.1.0   Add filtering and accessibility to the reports
  * 2018-03-01   v2.0.0   Change the HTML format to look like Koa11y reports
  * 2018-03-01   v1.0.0   Release a stable version using a simple HTML format
  * 2018-02-28   v0.2.4   Add \<meta charset="utf-8"\> to the HTML page

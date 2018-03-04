@@ -11,15 +11,19 @@ if (!Object.values) {
 function formatIssues (issues, panelColor) {
   return issues.map(function (issue) {
     const extract = issue.extract.split('<').join('&lt;')
-    const position = 'line: ' + issue.line + ', column:' + issue.column
+    const message = issue.message.split('<').join('&lt;').split('"').join('&quot;')
+    const line = issue.line
+    const column = issue.column
+    const position = 'line: ' + line + ', column: ' + column
+    const positionAudio = '(at line ' + line + ' and column ' + column + ')'
     const entry =
-      '<div class="panel panel-' + panelColor + '">\n' +
+      '<div class="panel panel-' + panelColor + '" tabindex="0" aria-label="' + message + ' ' + positionAudio + '">\n' +
         '<div class="panel-heading"></div>\n' +
         '<div class="panel-body">\n' +
-          issue.message + '<br><br>\n' +
+          '<div class="message">' + message + '</div>\n' +
           '<pre><code>' + extract + '</code></pre>\n' +
         '</div>\n' +
-        '<div class="panel-footer text-sm"><h4><small>' + position + '</small></h4></div>\n' +
+        '<div class="panel-footer text-sm"><span class="heading3" role="heading" aria-level="3">' + position + '</span></div>\n' +
       '</div>\n'
 
     return entry
@@ -41,11 +45,11 @@ function formatFile (file) {
       '<button class="btn btn-sm btn-primary">Notices <span class="badge">' + notices.length + '</span></button>'
 
   const content =
-      '    <div class="row">\n' +
-      '      <a href="javascript:void(0)"><h2>' + file.name + '</h2></a>' +
+      '    <div class="row page">\n' +
+      '      <button type="button" role="heading" aria-level="2"><span class="heading2">' + file.name + '</span></button>' +
       '      <span class="buttons">' + buttonMarkup + '</span>\n' +
       '    </div>\n' +
-      '    <div class="row">' + returnedErrors + returnedWarnings + returnedNotices + '</div>\n'
+      '    <div class="row report">' + returnedErrors + returnedWarnings + returnedNotices + '</div>\n'
 
   return content
 }
@@ -99,10 +103,16 @@ module.exports = function (results) {
       '<button class="btn btn-sm btn-warning">Warnings <span class="badge">' + warningCount + '</span></button>' +
       '<button class="btn btn-sm btn-primary">Notices <span class="badge">' + noticeCount + '</span></button>'
 
+  const messageFilter = 'Enter text to filter messages with'
+  const firstOccurrence = 'Warn about the first occurrence only'
   const heading =
       '    <div class="row summary">\n' +
-      '      <h1>HTML Validity Report</h1>' +
+      '      <button type="button" role="heading" aria-level="1"><span class="heading1">HTML Validity Report</span></button>' +
       '      <span class="buttons">' + buttonMarkup + '</span>\n' +
+      '    </div>\n' +
+      '    <div class="row filters form-group">\n' +
+      '      <input id="message-filter" type="text" class="form-control input-lg" placeholder="' + messageFilter + '">\n' +
+      '      <label><input id="first-occurrences" type="checkbox" aria-checked="false" aria-label="' + firstOccurrence + '"> ' + firstOccurrence + '</label>\n' +
       '    </div>\n'
 
   const content = Object.values(files)
