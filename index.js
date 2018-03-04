@@ -46,7 +46,7 @@ function formatFile (file) {
 
   const content =
       '    <div class="row page">\n' +
-      '      <button type="button" role="heading" aria-level="2"><span class="heading2">' + file.name + '</span></button>' +
+      '      <button type="button"><span class="heading2" role="heading" aria-level="2">' + file.name + '</span></button>' +
       '      <span class="buttons">' + buttonMarkup + '</span>\n' +
       '    </div>\n' +
       '    <div class="row report">' + returnedErrors + returnedWarnings + returnedNotices + '</div>\n'
@@ -107,7 +107,7 @@ module.exports = function (results) {
   const firstOccurrence = 'Warn about the first occurrence only'
   const heading =
       '    <div class="row summary">\n' +
-      '      <button type="button" role="heading" aria-level="1"><span class="heading1">HTML Validity Report</span></button>' +
+      '      <button type="button"><span class="heading1" role="heading" aria-level="1">HTML Validity Report</span></button>' +
       '      <span class="buttons">' + buttonMarkup + '</span>\n' +
       '    </div>\n' +
       '    <div class="row filters form-group">\n' +
