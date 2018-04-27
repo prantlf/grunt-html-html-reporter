@@ -61,6 +61,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2018-04-27   v3.0.0   Dropped support of Node.js 4
  * 2018-03-05   v2.2.0   Allow generating page titles from file names without directory
  * 2018-03-04   v2.1.0   Add filtering and accessibility to the reports
  * 2018-03-01   v2.0.0   Change the HTML format to look like Koa11y reports
