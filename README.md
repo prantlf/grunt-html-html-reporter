@@ -10,7 +10,7 @@ A custom reporter for [grunt-html] - the HTML validation task - which formats th
 
 You can use the reporter programmatically. In that case you do not need [Grunt] as stated below. You can also use the reporter directly with the [grunt-html] task. The reporter is usually installed and used together with other development tasks.
 
-You need [node >= 4][node], [npm] and [grunt >= 0.4][Grunt] installed and your project build managed by a [Gruntfile] with the necessary modules listed in [package.json], including [grunt-html]. If you haven't used Grunt before, be sure to check out the [Getting Started] guide, as it explains how to create a Gruntfile as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+You need [node >= 6][node], [npm] and [grunt >= 0.4][Grunt] installed and your project build managed by a [Gruntfile] with the necessary modules listed in [package.json], including [grunt-html]. If you haven't used Grunt before, be sure to check out the [Getting Started] guide, as it explains how to create a Gruntfile as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```sh
 $ npm install grunt-html-html-reporter --save-dev
@@ -36,7 +36,13 @@ fs.writeFileSync('report.html', output, 'utf-8')
 Type: `Boolean`
 Default value: `false`
 
-Cuts the directory from tested HTML files, when creating page titles from in the report. If you use unique names for files alone, you will not get too long page titles, if you flip this flag tp `true`.
+Cuts the directory from tested HTML files, when creating page titles of them in the report. If you use unique names for files alone, you will not get too long page titles, if you flip this flag tp `true`.
+
+#### showCommonPathOnly
+Type: `Boolean`
+Default value: `true`
+
+Cuts the same initial part of the path from tested HTML files, when the paths are used for page titles in the report. If you use sub-directories to organize your files, this option will make the file paths in the report short, but still unique. The default is flipped to `true` already.
 
 ## Usage with grunt-html
 
@@ -61,6 +67,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+ * 2018-05-14   v3.1.0   Allow cutting the same initial part of the path from tested HTML files for displaying purposes
  * 2018-04-27   v3.0.0   Dropped support of Node.js 4
  * 2018-03-05   v2.2.0   Allow generating page titles from file names without directory
  * 2018-03-04   v2.1.0   Add filtering and accessibility to the reports

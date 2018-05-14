@@ -1,7 +1,8 @@
 'use strict'
 
-const fs = require('fs')
-const path = require('path')
+const {getCommonPathLength} = require('common-path-start')
+const {readFileSync} = require('fs')
+const {basename, join, normalize} = require('path')
 
 const objectValues = require('object.values')
 if (!Object.values) {
@@ -9,7 +10,7 @@ if (!Object.values) {
 }
 
 function formatIssues (issues, panelColor) {
-  return issues.map(function (issue) {
+  return issues.map(issue => {
     const extract = issue.extract.split('<').join('&lt;')
     const message = issue.message.split('<').join('&lt;').split('"').join('&quot;')
     const line = issue.line
@@ -54,22 +55,26 @@ function formatFile (file) {
   return content
 }
 
-module.exports = function (results, options) {
+module.exports = (results, options) => {
   const showFileNameOnly = options && options.showFileNameOnly
+  const showCommonPathOnly = !(options && options.showCommonPathOnly === false)
+  const commonPathLength = showCommonPathOnly &&
+    getCommonPathLength(results.map(result => normalize(result.file)))
   const files = {}
-  var errorCount = 0
-  var warningCount = 0
-  var noticeCount = 0
+  let errorCount = 0
+  let warningCount = 0
+  let noticeCount = 0
 
-  results.forEach(function (result) {
-    const name = path.normalize(result.file)
+  results.forEach(result => {
+    const name = normalize(result.file)
     const severity = result.type
-    var file = files[name]
-    var fileName, issues
+    let file = files[name]
+    let fileName, issues
     if (!file) {
       if (showFileNameOnly) {
-        fileName = path.parse(name)
-        fileName = fileName.name + fileName.ext
+        fileName = basename(name)
+      } else if (commonPathLength) {
+        fileName = name.substr(commonPathLength)
       } else {
         fileName = name
       }
@@ -102,8 +107,8 @@ module.exports = function (results, options) {
     })
   })
 
-  const template = fs.readFileSync(
-    path.join(__dirname, 'template.html'), 'utf8')
+  const template = readFileSync(
+    join(__dirname, 'template.html'), 'utf8')
 
   const buttonMarkup =
       '<button class="btn btn-sm btn-danger">Errors <span class="badge">' + errorCount + '</span></button>' +
