@@ -3,8 +3,10 @@
 .editorconfig
 .eslintrc
 .npmignore
+.nyc_output
 .travis.yml
 .vscode
+coverage
 node_modules
 npm-debug.log
 tests
