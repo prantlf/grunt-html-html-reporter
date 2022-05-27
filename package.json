@@ -26,18 +26,53 @@
     "node": ">= 6"
   },
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
-    "lint": "standard *.js tests/*.js",
-    "check": "tap tests/*.js",
-    "test": "npm run lint && npm run check"
+    "lint": "denolint",
+    "check": "teru test/*.js",
+    "cover": "c8 teru test/*.js",
+    "test": "denolint && c8 teru test/*.js"
+  },
+  "c8": {
+    "check-coverage": true,
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/github",
+        {
+          "failComment": false
+        }
+      ],
+      "@semantic-release/git"
+    ]
   },
   "dependencies": {
     "common-path-start": "^0.0.4",
-    "object.values": "^1.1.0"
+    "object.values": "^1.1.5"
   },
   "devDependencies": {
-    "standard": "^14.3.1",
-    "tap": "^14.6.5"
+    "@node-rs/deno-lint": "^1.13.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "c8": "^7.11.3",
+    "tehanu": "^1.0.0",
+    "tehanu-repo-coco": "^1.0.0",
+    "tehanu-teru": "^1.0.0"
   },
   "keywords": [
     "grunt-tasks",

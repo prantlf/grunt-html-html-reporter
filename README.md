@@ -1,12 +1,9 @@
 # grunt-html-html-reporter
 
-[![NPM version](https://badge.fury.io/js/grunt-html-html-reporter.png)](http://badge.fury.io/js/grunt-html-html-reporter)
-[![Build Status](https://travis-ci.org/prantlf/grunt-html-html-reporter.svg?branch=master)](https://travis-ci.org/prantlf/grunt-html-html-reporter)
-[![Dependency Status](https://david-dm.org/prantlf/grunt-html-html-reporter.svg)](https://david-dm.org/prantlf/grunt-html-html-reporter)
-[![devDependency Status](https://david-dm.org/prantlf/grunt-html-html-reporter/dev-status.svg)](https://david-dm.org/prantlf/grunt-html-html-reporter#info=devDependencies)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-
-[![NPM Downloads](https://nodei.co/npm/grunt-html-html-reporter.png?downloads=true&stars=true)](https://www.npmjs.com/package/grunt-html-html-reporter)
+[![Latest version](https://img.shields.io/npm/v/grunt-html-html-reporter)
+ ![Dependency status](https://img.shields.io/librariesio/release/npm/grunt-html-html-reporter)
+](https://www.npmjs.com/package/grunt-html-html-reporter)
+[![Coverage](https://codecov.io/gh/prantlf/grunt-html-html-reporter/branch/master/graph/badge.svg)](https://codecov.io/gh/prantlf/grunt-html-html-reporter)
 
 A custom reporter for [grunt-html] - the HTML validation task - which formats the validation results to HTML. There is a [Grunt] task available for converting already written report files, which uses this reporter - [grunt-html-html-report-converter].
 
@@ -14,10 +11,12 @@ A custom reporter for [grunt-html] - the HTML validation task - which formats th
 
 You can use the reporter programmatically. In that case you do not need [Grunt] as stated below. You can also use the reporter directly with the [grunt-html] task. The reporter is usually installed and used together with other development tasks.
 
-You need [node >= 6][node], [npm] and [grunt >= 0.4][Grunt] installed and your project build managed by a [Gruntfile] with the necessary modules listed in [package.json], including [grunt-html]. If you haven't used Grunt before, be sure to check out the [Getting Started] guide, as it explains how to create a Gruntfile as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+You need [node >= 6][node] and [grunt >= 0.4][Grunt] installed and your project build managed by a [Gruntfile] with the necessary modules listed in [package.json], including [grunt-html]. If you haven't used Grunt before, be sure to check out the [Getting Started] guide, as it explains how to create a Gruntfile as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with your favourite package manager:
 
 ```sh
-$ npm install grunt-html-html-reporter --save-dev
+npm i -D grunt-html-html-reporter
+pnpm i -D grunt-html-html-reporter
+yarn add -D grunt-html-html-reporter
 ```
 
 ## Programmatic Usage
@@ -69,21 +68,6 @@ htmllint: {
 
 In lieu of a formal styleguide, take care to maintain the existing coding style.
 
-## Release History
-
- * 2018-05-14   v3.1.0   Allow cutting the same initial part of the path from tested HTML files for displaying purposes
- * 2018-04-27   v3.0.0   Dropped support of Node.js 4
- * 2018-03-05   v2.2.0   Allow generating page titles from file names without directory
- * 2018-03-04   v2.1.0   Add filtering and accessibility to the reports
- * 2018-03-01   v2.0.0   Change the HTML format to look like Koa11y reports
- * 2018-03-01   v1.0.0   Release a stable version using a simple HTML format
- * 2018-02-28   v0.2.4   Add \<meta charset="utf-8"\> to the HTML page
- * 2018-01-27   v0.2.2   Do not report unknown messqge types as notices
- * 2017-11-25   v0.2.1   Support Node.js < 7
- * 2017-11-24   v0.2.0   Fix recognition of warnings,
-                         say "notices" instead of "notes"
- * 2017-11-24   v0.0.1   Initial release
-
 ## License
 
 Copyright (c) 2017-2022 Ferdinand Prantl
@@ -91,7 +75,6 @@ Copyright (c) 2017-2022 Ferdinand Prantl
 Licensed under the MIT license.
 
 [node]: http://nodejs.org
-[npm]: http://npmjs.org
 [package.json]: https://docs.npmjs.com/files/package.json
 [Grunt]: https://gruntjs.com
 [Gruntfile]: http://gruntjs.com/sample-gruntfile

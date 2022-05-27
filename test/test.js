@@ -1,27 +1,24 @@
-'use strict'
-
+const test = require('tehanu')('getCommonPathStart')
+const { strictEqual } = require('assert')
+const report = require('..')
 const fs = require('fs')
 const path = require('path')
-const report = require('..')
-const test = require('tap')
 
-test.test('module exports a function', test => {
-  test.equal(typeof report, 'function')
-  test.end()
+test('module exports a function', () => {
+  strictEqual(typeof report, 'function')
 })
 
-test.test('transforms JSON object to string in HTML format', test => {
+test('transforms JSON object to string in HTML format', () => {
   const file = path.join(__dirname, 'results', 'report.json')
   const results = JSON.parse(fs.readFileSync(file, 'utf-8'))
   const expected = fs.readFileSync(path.join(__dirname, 'results',
     'common-path.html'), 'utf-8')
   const actual = report(results)
-  test.equal(typeof actual, 'string')
-  test.equal(expected, actual)
-  test.end()
+  strictEqual(typeof actual, 'string')
+  strictEqual(expected, actual)
 })
 
-test.test('optionally generates page titles from file names without directory', test => {
+test('optionally generates page titles from file names without directory', () => {
   const file = path.join(__dirname, 'results', 'report.json')
   const results = JSON.parse(fs.readFileSync(file, 'utf-8'))
   const expected = fs.readFileSync(path.join(__dirname, 'results',
@@ -29,12 +26,11 @@ test.test('optionally generates page titles from file names without directory', 
   const actual = report(results, {
     showFileNameOnly: true
   })
-  test.equal(typeof actual, 'string')
-  test.equal(expected, actual)
-  test.end()
+  strictEqual(typeof actual, 'string')
+  strictEqual(expected, actual)
 })
 
-test.test('optionally generates page titles with full file paths', test => {
+test('optionally generates page titles with full file paths', () => {
   const file = path.join(__dirname, 'results', 'report.json')
   const results = JSON.parse(fs.readFileSync(file, 'utf-8'))
   const expected = fs.readFileSync(path.join(__dirname, 'results',
@@ -42,7 +38,6 @@ test.test('optionally generates page titles with full file paths', test => {
   const actual = report(results, {
     showCommonPathOnly: false
   })
-  test.equal(typeof actual, 'string')
-  test.equal(expected, actual)
-  test.end()
+  strictEqual(typeof actual, 'string')
+  strictEqual(expected, actual)
 })
