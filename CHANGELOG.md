@@ -1,3 +1,10 @@
+## [3.1.4](https://github.com/prantlf/grunt-html-html-reporter/compare/v3.1.3...v3.1.4) (2022-05-27)
+
+
+### Bug Fixes
+
+* Do not try loading object.values on Node.js 8 and newer ([a022667](https://github.com/prantlf/grunt-html-html-reporter/commit/a0226673bf629db2227ace419c0a8ca1fae11bb5))
+
 ## 3.1.0 (2018-05-14)
 
 Allow cutting the same initial part of the path from tested HTML files for displaying purposes
