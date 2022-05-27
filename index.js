@@ -1,11 +1,10 @@
-'use strict'
-
 const { getCommonPathLength } = require('common-path-start')
 const { readFileSync } = require('fs')
 const { basename, join, normalize } = require('path')
 
-const objectValues = require('object.values')
+/* c8 ignore next 4 */
 if (!Object.values) {
+  const objectValues = require('object.values')
   objectValues.shim()
 }
 
@@ -96,6 +95,7 @@ module.exports = (results, options) => {
         ++noticeCount
         issues = file.notices
       }
+    /* c8 ignore next 3 */
     } else {
       issues = []
     }
