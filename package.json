@@ -27,7 +27,8 @@
   },
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "template.html"
   ],
   "scripts": {
     "lint": "denolint",
