@@ -1,3 +1,10 @@
+## [3.1.5](https://github.com/prantlf/grunt-html-html-reporter/compare/v3.1.4...v3.1.5) (2022-05-27)
+
+
+### Bug Fixes
+
+* Package template.html ([b885bab](https://github.com/prantlf/grunt-html-html-reporter/commit/b885bab18a86f42b08478a8fa951b3ffb8b22412))
+
 ## [3.1.4](https://github.com/prantlf/grunt-html-html-reporter/compare/v3.1.3...v3.1.4) (2022-05-27)
 
 
